@@ -1,8 +1,6 @@
-import React, { Component, Suspense, lazy } from "react";
-import classNames from "classnames";
+import React, { Component, Suspense } from "react";
 import { Helmet } from "react-helmet";
 import {
-  BrowserRouter as Router,
   Route,
   Switch,
   withRouter,
