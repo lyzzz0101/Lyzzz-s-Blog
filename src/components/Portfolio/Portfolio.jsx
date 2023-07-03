@@ -61,8 +61,9 @@ class Portfolio extends Component {
   render() {
     return (
       <div className={this.getClassName()}>
-        <h2>Projects</h2>
-        {projects.map(this.renderCategory)}
+        {/* <h2>Projects</h2>
+        {projects.map(this.renderCategory)} */}
+        
       </div>
     )
   }

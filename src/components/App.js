@@ -145,7 +145,7 @@ class App extends Component {
       <div className="App">
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Amelia Wattenberger</title>
+          <title>Leah Lin</title>
           <link rel="canonical" href="https://wattenberger.com" />
           <meta property="og:type" content="article" />
           <meta
@@ -239,7 +239,7 @@ class App extends Component {
 
           <Header />
 
-          <Footer />
+          {/* <Footer /> */}
         </Suspense>
       </div>
     );

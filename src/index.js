@@ -6,13 +6,7 @@ import {createRoot} from "react-dom";
 import "./index.css";
 import App from "components/App";
 import * as serviceWorker from "./serviceWorker";
-import { render } from "react-snapshot";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  withRouter,
-} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const AppWrapper = () => (
   <Router>
