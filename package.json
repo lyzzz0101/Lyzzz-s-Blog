@@ -110,8 +110,11 @@
     "start": "serve -s build",
     "dev": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "predeploy": "node scripts/build.js",
+    "deploy": "gh-pages -d build"
   },
+  "homepage": "https://lyzzz0101.github.io/Lyzzz-s-Blog",
   "eslintConfig": {
     "extends": "react-app",
     "rules": {
@@ -187,6 +190,7 @@
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "gh-pages": "^5.0.0",
     "react-refresh": "^0.9.0",
     "webpack-dev-server": "^3.2.1"
   }
