@@ -114,7 +114,7 @@
     "predeploy": "node scripts/build.js",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://lyzzz0101.github.io/Lyzzz-s-Blog",
+  "homepage": "https://lyzzz0101.github.io/blog",
   "eslintConfig": {
     "extends": "react-app",
     "rules": {
