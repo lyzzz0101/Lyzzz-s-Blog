@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react"
 import PropTypes from "prop-types"
-import ResizeObserver from '@juggle/resize-observer';
+import {ResizeObserver} from '@juggle/resize-observer';
 
 export const dimensionsPropsType = (
     PropTypes.shape({

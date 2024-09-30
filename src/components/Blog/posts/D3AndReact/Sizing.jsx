@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react"
-import ResizeObserver from "@juggle/resize-observer"
+import {ResizeObserver} from "@juggle/resize-observer"
 import { useSpring, animated } from "react-spring"
 import * as d3 from "d3"
 import { format, range } from "d3"

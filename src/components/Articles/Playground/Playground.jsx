@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useMemo } from "react"
 import { extend, Canvas, useFrame, useThree } from 'react-three-fiber'
-import { useSpring, animated } from 'react-spring/three'
+import { useSpring, animated } from '@react-spring/three'
 import * as THREE from 'three'
+import { MathUtils } from 'three'
 import OrbitControls from "./OrbitControls"
 import * as d3 from "d3"
 import _ from "lodash"
@@ -46,7 +47,7 @@ const colorScale = d3.scaleLinear()
   .range(["#e1b12c", "#40739e"])
 
 function Wrapper({ ...props }) {
-  const meshGeo = new THREE.SphereBufferGeometry(100, 50, 50)
+  const meshGeo = new THREE.SphereGeometry(100, 50, 50)
 
   return (
     <Canvas camera={camera} {...props}>
@@ -127,7 +128,7 @@ function Wrapper({ ...props }) {
 }
 
 const Ground = () => {
-  const geometry = new THREE.SphereBufferGeometry(30, 50, 50)
+  const geometry = new THREE.SphereGeometry(30, 50, 50)
   // var geometry = new THREE.PlaneGeometry( 5, 20, 32 );
 
   return (
@@ -190,8 +191,8 @@ const Dogs = () => {
 
   }, [])
 
-  const sun = new THREE.SphereBufferGeometry(6, 50, 50)
-  const sky = new THREE.SphereBufferGeometry(25, 50, 50)
+  const sun = new THREE.SphereGeometry(6, 50, 50)
+  const sky = new THREE.SphereGeometry(25, 50, 50)
 
   return (
     <group ref={group}>
@@ -218,7 +219,7 @@ const Dog = ({ position }) => {
 
   const { rotation } = useSpring({
     from: {
-      rotation: [THREE.Math.degToRad(180), 0, THREE.Math.degToRad(45)],
+      rotation: [MathUtils.degToRad(180), 0, MathUtils.degToRad(45)],
     },
     to: {
       rotation: [0, 0, 0],
@@ -261,7 +262,7 @@ const Dog = ({ position }) => {
 }
 
 const DogHead = ({ color }) => {
-  const meshGeo = new THREE.SphereBufferGeometry(1, 50, 50)
+  const meshGeo = new THREE.SphereGeometry(1, 50, 50)
   return (
     <mesh geometry={meshGeo} scale={[
       d3.randomNormal(1.2, 0.2)(),
@@ -276,8 +277,8 @@ const DogHead = ({ color }) => {
 const DogNose = ({ color }) => {
   const [noseLength, noseGeo, noseballGeo] = useMemo(() => {
     const noseLength = d3.randomNormal(0.7, 0.1)()
-    const noseGeo = new THREE.SphereBufferGeometry(noseLength, 20, 20)
-    const noseballGeo = new THREE.SphereBufferGeometry(d3.randomNormal(0.3, 0.05)(), 20, 20)
+    const noseGeo = new THREE.SphereGeometry(noseLength, 20, 20)
+    const noseballGeo = new THREE.SphereGeometry(d3.randomNormal(0.3, 0.05)(), 20, 20)
     return [noseLength, noseGeo, noseballGeo]
   }, [])
 
@@ -321,10 +322,10 @@ const DogNose = ({ color }) => {
 const DogEyes = ({ color }) => {
   const [eyeRadius, eyeGeo, eyeballGeo, eyeSpeckGeo, eyebrowGeo, eyebrowRotation, offset, eyeballX, eyeballY, groupY, groupZ] = useMemo(() => {
     const eyeRadius = d3.randomNormal(0.25, 0.05)()
-    const eyeGeo = new THREE.SphereBufferGeometry(eyeRadius, 20, 20)
-    const eyeballGeo = new THREE.SphereBufferGeometry(eyeRadius * d3.randomNormal(0.5, 0.1)(), 20, 20)
-    const eyeSpeckGeo = new THREE.SphereBufferGeometry(d3.randomNormal(0.02, 0.005)(), 20, 20)
-    const eyebrowGeo = new THREE.SphereBufferGeometry(d3.randomNormal(0.16, 0.1)(), 20, 20)
+    const eyeGeo = new THREE.SphereGeometry(eyeRadius, 20, 20)
+    const eyeballGeo = new THREE.SphereGeometry(eyeRadius * d3.randomNormal(0.5, 0.1)(), 20, 20)
+    const eyeSpeckGeo = new THREE.SphereGeometry(d3.randomNormal(0.02, 0.005)(), 20, 20)
+    const eyebrowGeo = new THREE.SphereGeometry(d3.randomNormal(0.16, 0.1)(), 20, 20)
     const eyebrowRotation = d3.randomNormal(0, 0.6)()
     const offset = d3.randomNormal(0.55, 0.05)()
     const eyeballX = d3.randomNormal(0, 0.05)()
@@ -377,7 +378,7 @@ const DogEars = ({ color }) => {
   const [areDown, earRadius, earGeo, earRotation, offset, groupY, groupZ] = useMemo(() => {
     const areDown = !!Math.round(Math.random())
     const earRadius = d3.randomNormal(areDown ? 0.39 : 0.2, 0.1)()
-    const earGeo = new THREE.SphereBufferGeometry(earRadius, 20, 20)
+    const earGeo = new THREE.SphereGeometry(earRadius, 20, 20)
     const earRotation = d3.randomNormal(0, 2)()
     const offset = d3.randomNormal(areDown ? 1.1 : 0.9, 0.1)()
     const groupY = d3.randomNormal(0.5, 0.1)()
@@ -441,7 +442,7 @@ const DogPetal = ({ color, ...props }) => {
       )
     })
 
-    const geometry = new THREE.LatheBufferGeometry( points, 32 );
+    const geometry = new THREE.LatheGeometry( points, 32 );
 
   return (
     <mesh {...props}

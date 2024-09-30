@@ -98,7 +98,7 @@ const colorScale = d3.scaleLinear()
   .range(["#e1b12c", "#40739e"])
 
 function Wrapper({ focusedYear, focusedCharacter, onCharacterFocus, ...props }) {
-  const meshGeo = new THREE.SphereBufferGeometry(100, 50, 50)
+  const meshGeo = new THREE.SphereGeometry(100, 50, 50)
 
   // var starGeometry = new THREE.SphereGeometry(50, 50, 50);
   // var starMaterial = new THREE.MeshPhongMaterial({
@@ -136,7 +136,7 @@ function Wrapper({ focusedYear, focusedCharacter, onCharacterFocus, ...props }) 
 }
 
 const Sun = () => {
-  const geometry = new THREE.SphereBufferGeometry(9, 50, 50)
+  const geometry = new THREE.SphereGeometry(9, 50, 50)
   // var geometry = new THREE.PlaneGeometry( 5, 20, 32 );
 
   return (
@@ -186,9 +186,9 @@ const Character = ({ index, popularity, house, dateOfBirth, killed, killedBy, is
 
   const [planet, noble, moon, position, rotation, material, speed] = useMemo(() => {
 
-    const planet = new THREE.SphereBufferGeometry(planetRadius, 50, 50)
-    const noble = new THREE.SphereBufferGeometry(0.2, 50, 50)
-    const moon = new THREE.SphereBufferGeometry(0.2, 50, 50)
+    const planet = new THREE.SphereGeometry(planetRadius, 50, 50)
+    const noble = new THREE.SphereGeometry(0.2, 50, 50)
+    const moon = new THREE.SphereGeometry(0.2, 50, 50)
 
     const {x, y} = getPointFromAngleAndDistance(houseAngles[house] || houseAngles["Other"], ((index * 2) + 12) + d3.randomNormal(0, 0.)())
     const position = [

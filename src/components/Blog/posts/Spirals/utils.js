@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import ResizeObserver from '@juggle/resize-observer';
+import {ResizeObserver} from '@juggle/resize-observer';
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
 require('intersection-observer');

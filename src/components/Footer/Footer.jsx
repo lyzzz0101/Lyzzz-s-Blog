@@ -1,16 +1,32 @@
-import React, { Component } from "react"
+import React, { Component,useState, useEffect } from "react"
 import Link from "components/_ui/Link/Link";
 import Icon from "components/_ui/Icon/Icon";
-import {withRouter} from 'react-router-dom';
 import image from "./book.png"
 
 import "./Footer.scss"
 import NewsletterSignup from "components/_shared/NewsletterSignup/NewsletterSignup";
 
-class Footer extends Component {
+import { getCategory } from "../../apis/index"
 
-    render() {
-        const { pathname } = this.props.location;
+const Footer = ({ location }) => {
+
+    const pathname = location?.pathname || '/';
+        const [category, setCategory] = useState(null);
+
+
+        useEffect(() => {
+    const fetchCategory = async () => {
+            try {
+                const result = await getCategory();
+                console.log({result})
+                setCategory(result);
+            } catch (error) {
+                console.error("获取分类时出错:", error);
+            }
+            };
+
+            fetchCategory();
+        }, []);
 
         return (
             <footer className="Footer">
@@ -52,7 +68,6 @@ class Footer extends Component {
 
             </footer>
         )
-    }
 }
 
-export default withRouter(Footer)
+export default Footer

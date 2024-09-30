@@ -2,7 +2,7 @@ import { forwardRef, useState, useMemo, useEffect, useRef, memo } from 'react';
 import React from "react"
 // import { Extrude } from '@react-three/drei/Extrude'
 // import { Text } from '@react-three/drei/Text'
-import { a } from 'react-spring/three'
+import { animated } from '@react-spring/three'
 import { extend, Canvas, useThree, useFrame } from 'react-three-fiber'
 import { Text } from "troika-three-text";
 import FlipMove from 'react-flip-move';
@@ -356,13 +356,13 @@ const Path = ({ path, color, isHovered, onHover }) => {
       // var material = new THREE.LineBasicMaterial( { color : 0xff0000 } );
 
   return (
-    <a.group
+    <animated.group
       onPointerOver={onHover}
     >
       <mesh geometry={geometry}>
-        <a.lineBasicMaterial attach="material" color={isHovered ? "#000" : color} />
+        <animated.lineBasicMaterial attach="material" color={isHovered ? "#000" : color} />
       </mesh>
-    </a.group>
+    </animated.group>
   )
 }
 

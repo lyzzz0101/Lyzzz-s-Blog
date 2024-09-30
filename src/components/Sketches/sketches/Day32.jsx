@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { extend, Canvas, useThree } from 'react-three-fiber'
-import { useSpring, a } from 'react-spring/three'
+import { useSpring, animated } from '@react-spring/three'
 import OrbitControls from "utils/OrbitControls"
 import * as THREE from 'three'
 
@@ -188,7 +188,7 @@ const ConfettiFlake = ({ type, sizeType, isHollow, mousePosition }) => {
     // })
 
     return (
-        <a.mesh {...spring}>
+        <animated.mesh {...spring}>
             <Component attach="geometry" {...sizeProps} />
             <meshLambertMaterial
                 attach="material"
@@ -196,7 +196,7 @@ const ConfettiFlake = ({ type, sizeType, isHollow, mousePosition }) => {
                 color={attrs.color}
                 transparent
             />
-        </a.mesh>
+        </animated.mesh>
     )
 }
 

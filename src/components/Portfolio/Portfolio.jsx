@@ -2,7 +2,8 @@ import React, {Component} from "react"
 import classNames from "classnames"
 import _ from "lodash"
 import Link from "components/_ui/Link/Link"
-import {projects} from "./projects"
+// import {projects} from "./projects"
+
 
 require('./Portfolio.scss')
 
@@ -11,10 +12,10 @@ class Portfolio extends Component {
     return classNames("Portfolio")
   }
 
-  renderCategory = (category, idx) => {
-    return <div className="Portfolio__category" key={idx}>
-      <h6 className="Portfolio__category__label">{category.category}</h6>
-      {category.projects.map(this.renderItem)}
+  renderCategory = () => {
+    return <div className="Portfolio__category">
+      {/* <h6 className="Portfolio__category__label">{category.category}</h6> */}
+      {/* {category.projects.map(this.renderItem)} */}
     </div>
   }
 
@@ -63,6 +64,7 @@ class Portfolio extends Component {
       <div className={this.getClassName()}>
         {/* <h2>Projects</h2>
         {projects.map(this.renderCategory)} */}
+        {/* {this.renderCategory()} */}
         
       </div>
     )

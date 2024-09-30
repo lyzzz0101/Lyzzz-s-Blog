@@ -2,8 +2,7 @@ import React, { Component, Suspense } from "react";
 import { Helmet } from "react-helmet";
 import {
   Route,
-  Switch,
-  withRouter,
+  Routes,
 } from "react-router-dom";
 import Interactions from "components/Blog/posts/Interactions/Interactions";
 import Footer from "./Footer/Footer";
@@ -153,19 +152,19 @@ class App extends Component {
         </Helmet>
 
         <Suspense fallback={<Loader />}>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/sketches" component={Sketches} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/sketches" component={Sketches} />
             <Route path="/podcasts" component={Podcasts} />
             <Route path="/loading" component={Loader} />
-            {/* <Route path="/rochester-real-estate" component={RochesterRealEstate} /> */}
-            {/* <Route path="/healthcare" component={HealthCare} /> */}
+            <Route path="/rochester-real-estate" component={RochesterRealEstate} />
+            <Route path="/healthcare" component={HealthCare} />
             <Route path="/dogs" component={DogNames} />
             <Route path="/dog-breeds" component={DogBreeds} />
-            {/* <Route path="/family-tree" component={FamilyTree} /> */}
+            <Route path="/family-tree" component={FamilyTree} />
             <Route path="/news" component={News} />
             <Route path="/immigration" component={Immigration} />
-            {/* <Route path="/wdvpscatter" component={WDVP} /> */}
+            <Route path="/wdvpscatter" component={WDVP} />
             <Route path="/wdvpgrid" component={WDVPGrid} />
             <Route path="/wdvp" component={WDVP} />
             <Route path="/rocdev" component={RocDevSurvey} />
@@ -183,7 +182,7 @@ class App extends Component {
             <Route path="/music" component={Music} />
             <Route path="/hype-cycle" component={HypeCycle} />
             <Route path="/hype-cycle-2" component={HypeCycle2} />
-            {/* <Route path="/approval" component={Approval} /> */}
+            <Route path="/approval" component={Approval} />
             <Route path="/react-repo" component={ReactRepo} />
             <Route path="/diet" component={Diet} />
             <Route path="/dating" component={Dating} />
@@ -191,7 +190,7 @@ class App extends Component {
             <Route path="/game-of-thrones" component={GameOfThrones} />
             <Route path="/traffic-sources" component={TrafficSources} />
             <Route path="/react-zdog" component={ReactZdog} />
-            {/* <Route path="/webgl-demo" component={WebGLDemo} /> */}
+            <Route path="/webgl-demo" component={WebGLDemo} />
             <Route path="/photoronoi" component={Photoronoi} />
             <Route
               path="/blog/d3-interactive-charts"
@@ -216,10 +215,9 @@ class App extends Component {
               component={NewsletterThankYou}
             />
             <Route path="/keep-in-touch" component={NewsletterSignupPage} />
+            <Route path="/docstats" component={DoctorateStats} /> */}
 
-            {/* <Route path="/docstats" component={DoctorateStats} /> */}
-            <Route>
-              <div
+            <Route path="*" element={<div
                 style={{
                   height: "90vh",
                   width: "100%",
@@ -231,10 +229,11 @@ class App extends Component {
               >
                 <h2>Uh oh, there's nothing here</h2>
                 <Link href="/">Take me Home</Link>
-              </div>
+              </div>}>
+              
             </Route>
-          </Switch>
-
+          </Routes>
+ 
           <Header />
 
           <Footer />
@@ -244,4 +243,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default App;

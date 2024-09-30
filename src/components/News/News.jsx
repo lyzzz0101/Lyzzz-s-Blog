@@ -5,7 +5,6 @@ import rssParser from "rss-parser";
 import _ from "lodash";
 import * as d3 from "d3";
 import Sentiment from "sentiment"
-import { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import ReactSelect from 'react-select';
 import Creatable from 'react-select/creatable';
@@ -316,7 +315,7 @@ class News extends Component {
                 {sentimentRange.join(" to ")}
               </div>
             </div>
-            <Range
+            {/* <Range
               value={sentimentRange}
               min={-100}
               max={100}
@@ -324,7 +323,7 @@ class News extends Component {
               onChange={this.onSentimentRangeChange}
               pushable
               allowCross={false}
-            />
+            /> */}
           </div>
         </div>
 

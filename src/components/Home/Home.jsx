@@ -5,6 +5,7 @@ import Portfolio from "./../Portfolio/Portfolio"
 
 require('./Home.scss')
 
+
 class Home extends Component {
   getClassName() {
     return classNames("Home")
@@ -15,7 +16,7 @@ class Home extends Component {
       <div className={this.getClassName()}>
         <HomeHeader />
         <div className="Home__content">
-          <Portfolio />
+        <Portfolio />
         </div>
       </div>
     )

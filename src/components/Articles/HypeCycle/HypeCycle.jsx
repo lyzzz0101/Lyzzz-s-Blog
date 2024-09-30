@@ -1,7 +1,7 @@
 import { forwardRef, useState, useMemo, useEffect, useRef, memo } from 'react';
 import React from "react"
 // import { Extrude } from '@react-three/drei/Extrude'
-import { useSpring, a } from 'react-spring/three'
+import { useSpring, animated } from '@react-spring/three'
 import { extend, Canvas, useThree, useFrame } from 'react-three-fiber'
 import { useInterval } from "utils/utils"
 import FlipMove from 'react-flip-move';
@@ -302,16 +302,16 @@ const Point = ({ name, color, pointIndex=0, z, time, isHovered, onHover }) => {
   })
 
   return (
-    <a.group
+    <animated.group
       position-x={pointIndexTweened.interpolate(d => (curvePoints[Math.round(d)] || [])[0])}
       position-y={pointIndexTweened.interpolate(d => (curvePoints[Math.round(d)] || [])[1])}
       position-z={z}
       onPointerOver={onHover}
     >
       <mesh geometry={pointGeometry}>
-        <a.meshLambertMaterial attach="material" color={isHovered ? "#000" : colorTweened} />
+        <animated.meshLambertMaterial attach="material" color={isHovered ? "#000" : colorTweened} />
       </mesh>
-    </a.group>
+    </animated.group>
   )
 }
 

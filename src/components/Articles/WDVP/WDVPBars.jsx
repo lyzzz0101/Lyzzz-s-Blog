@@ -491,7 +491,7 @@ class WDVPBarsChart extends PureComponent {
   }
 
   createBar = (countryIndex, metricIndex, country, metric) => {
-    const geometry = new THREE.BoxBufferGeometry( 1, 1, 1 )
+    const geometry = new THREE.BoxGeometry( 1, 1, 1 )
     geometry.translate( 0, 0, 0 )
     let object = new THREE.Mesh(
       geometry,
@@ -541,7 +541,7 @@ class WDVPBarsChart extends PureComponent {
 
     if (!this.camera) this.initScene()
 
-    // const geometry = new THREE.BoxBufferGeometry( 20, 20, 20 )
+    // const geometry = new THREE.BoxGeometry( 20, 20, 20 )
     if (!this.countries) this.initBars()
 
     _.map(this.countries, country => {

@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react"
 import { extend, Canvas, useThree } from 'react-three-fiber'
-import { useSpring, a } from 'react-spring/three'
+import { useSpring, animated } from '@react-spring/three'
 import * as THREE from 'three'
 import image1 from "./lady.jpg"
 import imageMap1 from "./lady-map.jpg"
@@ -89,7 +89,7 @@ const MainImage = ({ mouse, selectedOption }) => {
   return (
     <mesh scale={scale}>
       <planeBufferGeometry attach="geometry" args={planeGeomArgs} />
-      <a.shaderMaterial
+      <animated.shaderMaterial
         attach="material"
         args={args}
         uniforms-dispX-value={dispX}

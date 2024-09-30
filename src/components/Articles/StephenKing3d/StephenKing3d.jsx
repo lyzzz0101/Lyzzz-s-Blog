@@ -152,7 +152,7 @@ const camera = {
 extend({ OrbitControls })
 
 function Wrapper({ focusedBook, vertices, color, onMouseOver, onMove, ...props }) {
-  const meshGeo = new THREE.SphereBufferGeometry(1, 50, 50)
+  const meshGeo = new THREE.SphereGeometry(1, 50, 50)
 
   const [isClearing, setIsClearing] = useState(false)
   const savedCallback = useRef()
