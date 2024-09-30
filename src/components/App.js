@@ -237,7 +237,7 @@ class App extends Component {
 
           <Header />
 
-          {/* <Footer /> */}
+          <Footer />
         </Suspense>
       </div>
     );

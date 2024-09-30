@@ -14,12 +14,12 @@ class Footer extends Component {
 
         return (
             <footer className="Footer">
-                <Link href="http://fullstack.io/fullstack-d3">
+                {/* <Link href="http://fullstack.io/fullstack-d3">
                     <img src={image} alt="Fullstack D3 & Data Visualization" className="Footer__image" />
-                </Link>
+                </Link> */}
                 <div className="Footer__text">
                     <div className="Footer__name">
-                        Amelia Wattenberger © 2023
+                        LeahLin © 2024
                     </div>
                     <div className="Footer__siblings">
                         <div className="Footer__links">
@@ -29,7 +29,7 @@ class Footer extends Component {
                                     Go home
                                 </Link>
                             )}
-                            <Link className="Footer__link" href="http://twitter.com/wattenberger">
+                            {/* <Link className="Footer__link" href="http://twitter.com/wattenberger">
                                 <img src="https://twemoji.maxcdn.com/2/svg/1f426.svg" className="Footer__link__emoji" alt="bird" />
                                 Ask me anything on Twitter
                             </Link>
@@ -40,13 +40,13 @@ class Footer extends Component {
                             <Link className="Footer__link" to="/rss">
                                 <Icon name="rss" className="Footer__link__icon" alt="book" />
                                 RSS
-                            </Link>
+                            </Link> */}
 
                         </div>
 
-                        {!["/thanks-for-signing-up", "/keep-in-touch"].includes(pathname) && (
+                        {/* {!["/thanks-for-signing-up", "/keep-in-touch"].includes(pathname) && (
                             <NewsletterSignup className="Footer__signup" />
-                        )}
+                        )} */}
                     </div>
                 </div>
 

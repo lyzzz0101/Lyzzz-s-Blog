@@ -15,7 +15,7 @@ class HomeHeader extends Component {
             <h1 className="HomeHeader__content__text__title">Leah Lin</h1>
 
             <div className="HomeHeader__content__text__description">
-              FE. nothing to introduce.
+              A Frontend Developer.
             </div>
           </div>
         </div>
