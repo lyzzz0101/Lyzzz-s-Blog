@@ -112,6 +112,7 @@ module.exports = function (webpackEnv) {
         loader: require.resolve(preProcessor),
         options: {
           sourceMap: isEnvProduction && shouldUseSourceMap,
+          implementation: require('sass'),
         },
       })
     }
@@ -370,6 +371,8 @@ module.exports = function (webpackEnv) {
             {
               test: /\.(js|mjs)$/,
               exclude: /@babel(?:\/|\\{1,2})runtime/,
+              include: /node_modules/,
+              type: 'javascript/auto',
               loader: require.resolve("babel-loader"),
               options: {
                 babelrc: false,
@@ -380,15 +383,18 @@ module.exports = function (webpackEnv) {
                     require.resolve("babel-preset-react-app/dependencies"),
                     { helpers: true },
                   ],
+                  ["@babel/preset-env", {
+                    "targets": "defaults"
+                  }],
+                  "@babel/preset-react"
+                ],
+                plugins: [
+                  '@babel/plugin-proposal-optional-chaining',
+                  '@babel/plugin-proposal-nullish-coalescing-operator'
                 ],
                 cacheDirectory: true,
                 cacheCompression: isEnvProduction,
-
-                // If an error happens in a package, it's possible to be
-                // because it was compiled. Thus, we don't want the browser
-                // debugger to show the original code. Instead, the code
-                // being evaluated would be much more helpful.
-                sourceMaps: false,
+                sourceMaps: true,
               },
             },
             // "postcss" loader applies autoprefixer to our CSS.

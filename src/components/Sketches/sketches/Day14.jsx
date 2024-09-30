@@ -188,7 +188,6 @@ class Day14 extends Component {
           height={height}
           width={width}
           ref={canvas => this.canvas = canvas}
-          key
         />
       </div>
     )
