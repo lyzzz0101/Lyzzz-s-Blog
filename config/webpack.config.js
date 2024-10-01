@@ -12,7 +12,7 @@ const TerserPlugin = require("terser-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 // const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
-const safePostCssParser = require("postcss-safe-parser")
+// const safePostCssParser = require("postcss-safe-parser")
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin")
 const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin")
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin")
@@ -211,25 +211,17 @@ module.exports = function (webpackEnv) {
         }),
         // This is only used in production mode
         new CssMinimizerPlugin({
-          minimizerOptions: {
-            preset: [
-              "default",
-              {
-                discardComments: { removeAllButFirst: true },
-                minifyFontValues: { removeQuotes: false },
-              },
-            ],
-            processorOptions: {
-              parser: safePostCssParser,
-              map: shouldUseSourceMap
-                ? {
-                    inline: false,
-                    annotation: true,
-                  }
-                : false,
-            },
-          },
-        }),
+            minimizerOptions: {
+              // processorOptions: {
+              //   parser: safePostCssParser,
+              //   map: false
+              // },
+              preset: ['default', {
+                discardComments: { removeAll: true },
+                minifyFontValues: { removeQuotes: false }
+              }]
+            }
+          })
       ],
       // Automatically split vendor and commons
       // https://twitter.com/wSokra/status/969633336732905474
@@ -644,9 +636,9 @@ module.exports = function (webpackEnv) {
         new WorkboxWebpackPlugin.GenerateSW({
           clientsClaim: true,
           exclude: [/\.map$/, /asset-manifest\.json$/],
-          importWorkboxFrom: "cdn",
+          // 删除 importWorkboxFrom: "cdn",
           navigateFallback: publicUrl + "/index.html",
-          navigateFallbackBlacklist: [
+          navigateFallbackDenylist: [
             // Exclude URLs starting with /_, as they're likely an API call
             new RegExp("^/_"),
             // Exclude URLs containing a dot, as they're likely a resource in
