@@ -11,11 +11,11 @@ const InlineChunkHtmlPlugin = require("react-dev-utils/InlineChunkHtmlPlugin")
 const TerserPlugin = require("terser-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 // const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const safePostCssParser = require("postcss-safe-parser")
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin")
 const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin")
-// const WorkboxWebpackPlugin = require("workbox-webpack-plugin")
+const WorkboxWebpackPlugin = require("workbox-webpack-plugin")
 // const WatchMissingNodeModulesPlugin = require("react-dev-utils/WatchMissingNodeModulesPlugin")
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin")
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent")
@@ -24,7 +24,7 @@ const modules = require("./modules")
 const getClientEnvironment = require("./env")
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin")
 const ForkTsCheckerWebpackPlugin = require("react-dev-utils/ForkTsCheckerWebpackPlugin")
-const ESLintPlugin = require('eslint-webpack-plugin');
+const ESLintPlugin = require("eslint-webpack-plugin")
 
 // const typescriptFormatter = require("react-dev-utils/typescriptFormatter")
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin")
@@ -116,10 +116,10 @@ module.exports = function (webpackEnv) {
         loader: require.resolve(preProcessor),
         options: {
           sourceMap: isEnvProduction && shouldUseSourceMap,
-          implementation: require('sass'),
+          implementation: require("sass"),
           sassOptions: {
             includePaths: [path.resolve(__dirname, "../src")],
-            importLoaders: 1
+            importLoaders: 1,
           },
         },
       })
@@ -166,26 +166,25 @@ module.exports = function (webpackEnv) {
       // There will be one main bundle, and one file per asynchronous chunk.
       // In development, it does not produce real files.
       filename: isEnvProduction
-        ? 'static/js/[name].[contenthash:8].js'
-        : isEnvDevelopment && 'static/js/[name].bundle.js',
+        ? "static/js/[name].[contenthash:8].js"
+        : isEnvDevelopment && "static/js/[name].bundle.js",
       chunkFilename: isEnvProduction
-        ? 'static/js/[name].[contenthash:8].chunk.js'
-        : isEnvDevelopment && 'static/js/[name].chunk.js',
+        ? "static/js/[name].[contenthash:8].chunk.js"
+        : isEnvDevelopment && "static/js/[name].chunk.js",
       // We inferred the "public path" (such as / or /my-project) from homepage.
       // We use "/" in development.
       publicPath: publicPath,
       // Point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: isEnvProduction
-        ? (info) =>
+        ? info =>
             path
               .relative(paths.appSrc, info.absoluteResourcePath)
               .replace(/\\/g, "/")
         : isEnvDevelopment &&
-          ((info) =>
-            path.resolve(info.absoluteResourcePath).replace(/\\/g, "/")),
+          (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, "/")),
     },
     optimization: {
-      runtimeChunk: 'single',
+      runtimeChunk: "single",
       minimize: isEnvProduction,
       minimizer: [
         // This is only used in production mode
@@ -214,7 +213,7 @@ module.exports = function (webpackEnv) {
         new CssMinimizerPlugin({
           minimizerOptions: {
             preset: [
-              'default',
+              "default",
               {
                 discardComments: { removeAllButFirst: true },
                 minifyFontValues: { removeQuotes: false },
@@ -258,13 +257,13 @@ module.exports = function (webpackEnv) {
       // `web` extension prefixes have been added for better support
       // for React Native Web.
       extensions: paths.moduleFileExtensions
-        .map((ext) => `.${ext}`)
-        .filter((ext) => useTypeScript || !ext.includes("ts")),
+        .map(ext => `.${ext}`)
+        .filter(ext => useTypeScript || !ext.includes("ts")),
       alias: {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         "react-native": "react-native-web",
-        'src': path.resolve(__dirname, '../src'),
+        src: path.resolve(__dirname, "../src"),
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -278,13 +277,13 @@ module.exports = function (webpackEnv) {
         // new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
       ],
       fallback: {
-        "http": require.resolve("stream-http"),
-        "https": require.resolve("https-browserify"),
-        "zlib": require.resolve("browserify-zlib"),
-        "stream": require.resolve("stream-browserify"),
-        "url": false,
-        "timers": false
-      }
+        http: require.resolve("stream-http"),
+        https: require.resolve("https-browserify"),
+        zlib: require.resolve("browserify-zlib"),
+        stream: require.resolve("stream-browserify"),
+        url: false,
+        timers: false,
+      },
     },
     resolveLoader: {
       plugins: [
@@ -298,7 +297,7 @@ module.exports = function (webpackEnv) {
       rules: [
         // Disable require.ensure as it's not a standard language feature.
         // { parser: { requireEnsure: false } },
-        
+
         // First, run the linter.
         // It's important to do this before Babel processes the JS.
         // 在Webpack 5中，eslint-loader已经被废弃了。现在推荐使用eslint-webpack-plugin来代替
@@ -326,7 +325,7 @@ module.exports = function (webpackEnv) {
             // 在webpack 5中,url-loader/file-loader已被内置的Asset Modules替代。您可以更新相关配置为
             {
               test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-              type: 'asset',
+              type: "asset",
               parser: {
                 dataUrlCondition: {
                   maxSize: 10000,
@@ -377,7 +376,7 @@ module.exports = function (webpackEnv) {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
               exclude: /@babel(?:\/|\\{1,2})runtime/,
               include: /node_modules/,
-              type: 'javascript/auto',
+              type: "javascript/auto",
               loader: require.resolve("babel-loader"),
               options: {
                 babelrc: false,
@@ -390,14 +389,14 @@ module.exports = function (webpackEnv) {
                   ],
                   "@babel/preset-env",
                   "@babel/preset-react",
-                  "@babel/preset-typescript"
+                  "@babel/preset-typescript",
                 ],
                 plugins: [
-                  '@babel/plugin-proposal-optional-chaining',
-                  '@babel/plugin-proposal-nullish-coalescing-operator',
-                  '@babel/plugin-proposal-class-properties',
-                  '@babel/plugin-proposal-numeric-separator',
-                  '@babel/plugin-proposal-private-property-in-object'
+                  "@babel/plugin-proposal-optional-chaining",
+                  "@babel/plugin-proposal-nullish-coalescing-operator",
+                  "@babel/plugin-proposal-class-properties",
+                  "@babel/plugin-proposal-numeric-separator",
+                  "@babel/plugin-proposal-private-property-in-object",
                 ],
                 cacheDirectory: true,
                 cacheCompression: false,
@@ -484,7 +483,7 @@ module.exports = function (webpackEnv) {
             // raw-loader也被webpack5简化了
             {
               test: /\.(geojson|csv)$/i,
-              type: 'asset/source',
+              type: "asset/source",
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
@@ -511,36 +510,38 @@ module.exports = function (webpackEnv) {
     plugins: [
       // Generates an `index.html` file with the <script> injected.
       new ESLintPlugin({
-        extensions: ['js', 'mjs', 'jsx', 'ts', 'tsx'],
-        formatter: require.resolve('react-dev-utils/eslintFormatter'),
-        eslintPath: require.resolve('eslint'),
+        extensions: ["js", "mjs", "jsx", "ts", "tsx"],
+        formatter: require.resolve("react-dev-utils/eslintFormatter"),
+        eslintPath: require.resolve("eslint"),
         context: paths.appSrc,
         cache: true,
         cwd: paths.appPath,
         resolvePluginsRelativeTo: __dirname,
         baseConfig: {
           extends: [
-            require.resolve('eslint-config-react-app/base'),
-            'plugin:flowtype/recommended'
+            "eslint:recommended",
+            "prettier",
+            "plugin:react/recommended",
+            "plugin:jsx-a11y/recommended",
           ],
-          plugins: ['flowtype'],
+          plugins: ["prettier"],
           rules: {
-            // 这里可以添加自定义规则
-            // 似乎eslint-webpack-plugin错误支持flowtype/define-flow-type规则
-            "flowtype/define-flow-type": 1,
-            // 'flowtype/boolean-style': [2, 'boolean'], // 禁用导致问题的规则
+            "react/prop-types": "off",
+            "no-unused-vars": "off",
           },
-          parser: '@babel/eslint-parser',
+          parser: "@babel/eslint-parser",
           parserOptions: {
             requireConfigFile: false,
+            ecmaVersion: 2018,
+            sourceType: "module",
             babelOptions: {
-              presets: ['@babel/preset-react', '@babel/preset-flow'],
+              presets: ["@babel/preset-react", "@babel/preset-flow"],
             },
           },
-          settings: {
-            flowtype: {
-              onlyFilesWithFlowAnnotation: true, // 只在有 Flow 注释的文件中启用 Flow
-            },
+          env: {
+            browser: true,
+            node: true,
+            es6: true,
           },
         },
       }),
@@ -605,10 +606,10 @@ module.exports = function (webpackEnv) {
       // isEnvDevelopment &&
       //   new WatchMissingNodeModulesPlugin(paths.appNodeModules),
       isEnvProduction &&
-      new MiniCssExtractPlugin({
-        filename: 'static/css/[name].[contenthash:8].css',
-        chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-      }),
+        new MiniCssExtractPlugin({
+          filename: "static/css/[name].[contenthash:8].css",
+          chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
+        }),
       // Generate a manifest file which contains a mapping of all asset filenames
       // to their corresponding output file so that tools can pick it up without
       // having to parse `index.html`.

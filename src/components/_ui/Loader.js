@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 import _ from "lodash"
 
 import "./Loader.scss"
@@ -7,7 +7,13 @@ import "./Loader.scss"
 const colors = [
   // "#A70267","#F10C49","#FB6B41","#F6D86B","#339194"
   // "#4B3E4D","#1E8C93","#DBD8A2","#f4f4f4","#D74F33"
-  "#006266", "#5758BB", "#6F1E51", "#F79F1F", "#1289A7", "#eaeaea", "#D980FA",
+  "#006266",
+  "#5758BB",
+  "#6F1E51",
+  "#F79F1F",
+  "#1289A7",
+  "#eaeaea",
+  "#D980FA",
 ]
 const sizeDimensions = {
   small: 50,
@@ -29,9 +35,7 @@ class Loader extends PureComponent {
   onHoverTriangle = i => e => {
     const { triangleColors } = this.state
     const newTriangleColors = _.map(triangleColors, (colorIndex, j) =>
-      j == i
-        ? (colorIndex + 1) % (colors.length)
-        : colorIndex
+      j == i ? (colorIndex + 1) % colors.length : colorIndex
     )
     this.setState({
       triangleColors: newTriangleColors,
@@ -52,20 +56,22 @@ class Loader extends PureComponent {
     const height = width * 0.8
 
     const trianglePoints = [
-    [
-      [width * 0.5, 0].join(" "),
-      [width * (5/6), height * (2/3)].join(" "),
-      [width * (1/6), height * (2/3)].join(" "),
-    ],[
-      [0, height * (1/3)].join(" "),
-      [width * (4/6), height * (1/3)].join(" "),
-      [width * (2/6), height].join(" "),
-    ],[
-      [width * (2/6), height * (1/3)].join(" "),
-      [width, height * (1/3)].join(" "),
-      [width * (4/6), height].join(" "),
+      [
+        [width * 0.5, 0].join(" "),
+        [width * (5 / 6), height * (2 / 3)].join(" "),
+        [width * (1 / 6), height * (2 / 3)].join(" "),
+      ],
+      [
+        [0, height * (1 / 3)].join(" "),
+        [width * (4 / 6), height * (1 / 3)].join(" "),
+        [width * (2 / 6), height].join(" "),
+      ],
+      [
+        [width * (2 / 6), height * (1 / 3)].join(" "),
+        [width, height * (1 / 3)].join(" "),
+        [width * (4 / 6), height].join(" "),
+      ],
     ]
-  ]
 
     return (
       <div className="Loader">

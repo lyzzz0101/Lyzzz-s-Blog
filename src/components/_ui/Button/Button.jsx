@@ -1,13 +1,15 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames"
 
-require('./Button.scss')
+require("./Button.scss")
 
 class Button extends Component {
   getClassName() {
     return classNames(
-      "Button", `Button--style-${this.props.styleType}`, this.props.className
+      "Button",
+      `Button--style-${this.props.styleType}`,
+      this.props.className
     )
   }
 
@@ -16,7 +18,7 @@ class Button extends Component {
       <button {...this.props} className={this.getClassName()}>
         {this.props.children}
       </button>
-      )
+    )
   }
 }
 

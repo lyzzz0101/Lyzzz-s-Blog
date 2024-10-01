@@ -1,14 +1,14 @@
-import React from "react";
-import wc1 from "./Images/wc1.jpg";
-import wc2 from "./Images/wc2.png";
-import foos1 from "./Images/foos1.jpg";
-import foos2 from "./Images/foos2.png";
-import foos3 from "./Images/foos3.jpg";
-import fishing from "./Images/fishing.png";
-import book from "./Images/book.png";
-import interaction from "./Images/interaction.png";
-import d3js from "./Images/d3js.png";
-import debateGame from "./Images/debate-game.png";
+import React from "react"
+import wc1 from "./Images/wc1.jpg"
+import wc2 from "./Images/wc2.png"
+import foos1 from "./Images/foos1.jpg"
+import foos2 from "./Images/foos2.png"
+import foos3 from "./Images/foos3.jpg"
+import fishing from "./Images/fishing.png"
+import book from "./Images/book.png"
+import interaction from "./Images/interaction.png"
+import d3js from "./Images/d3js.png"
+import debateGame from "./Images/debate-game.png"
 // import foos4 from "./Images/foos4.jpg"
 // import seaholm from "./Images/seaholm.png"
 // import seaholm2 from "./Images/seaholm2.png"
@@ -17,18 +17,18 @@ import debateGame from "./Images/debate-game.png";
 // import hn1 from "./Images/hn1.png"
 // import hn2 from "./Images/hn2.png"
 // import ga1 from "./Images/ga1.png"
-import lucha1 from "./Images/lucha1.gif";
-import lucha2 from "./Images/lucha2.jpg";
+import lucha1 from "./Images/lucha1.gif"
+import lucha2 from "./Images/lucha2.jpg"
 // import lucha3 from "./Images/lucha3.jpg"
-import lucha4 from "./Images/lucha4.jpg";
+import lucha4 from "./Images/lucha4.jpg"
 // import ca from "./Images/ca.png"
-import newsImage from "./Images/news.png";
-import dogs from "./Images/dogs.png";
-import dogBreeds from "./Images/dog-breeds.png";
-import Day8 from "components/Sketches/sketches/Day8";
-import WDVPMap from "components/Articles/WDVP/WDVPMap";
-import List from "components/_ui/List/List";
-import Link from "components/_ui/Link/Link";
+import newsImage from "./Images/news.png"
+import dogs from "./Images/dogs.png"
+import dogBreeds from "./Images/dog-breeds.png"
+import Day8 from "components/Sketches/sketches/Day8"
+import WDVPMap from "components/Articles/WDVP/WDVPMap"
+import List from "components/_ui/List/List"
+import Link from "components/_ui/Link/Link"
 
 export const projects = [
   {
@@ -479,4 +479,4 @@ export const projects = [
       },
     ],
   },
-];
+]

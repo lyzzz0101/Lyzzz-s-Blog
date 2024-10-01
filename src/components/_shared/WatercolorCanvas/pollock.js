@@ -57,8 +57,8 @@ function Pollock(options) {
 
 Pollock.extend = function(to, from, allowNew) {
   for (var i in from) {
-    if (allowNew || to.hasOwnProperty(i))
-    to[i] = from[i];
+    if (allowNew || Object.prototype.hasOwnProperty.call(to, i))
+      to[i] = from[i];
   }
   return to;
 };

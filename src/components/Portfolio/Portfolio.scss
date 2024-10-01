@@ -53,11 +53,12 @@ $aspect-ratio: 58vw;
   margin: 0 (-$horizontal-padding);
 
   .WDVPMap__header:before {
-    background: linear-gradient(to top,
+    background: linear-gradient(
+      to top,
       rgba($bgc, 0),
       rgba($bgc, 0.8) 32%,
       rgba($bgc, 0.94) 47%,
-      rgba($bgc, 1)    90%,
+      rgba($bgc, 1) 90%
     );
   }
 }
@@ -147,5 +148,4 @@ $aspect-ratio: 58vw;
       font-size: 1.5em;
     }
   }
-
 }

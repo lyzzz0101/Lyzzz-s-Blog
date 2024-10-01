@@ -93,9 +93,18 @@ class WatercolorCanvas extends Component {
 
   renderColorBlocks() {
     return colors.map((colorBlock, idx) =>
-      <div className={this.getColorBlockClassName(idx)}
-           onClick={this.selectColors.bind(this, idx)}
-           key={idx}>
+      <div 
+        className={this.getColorBlockClassName(idx)}
+        onClick={this.selectColors.bind(this, idx)}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            this.selectColors(idx);
+          }
+        }}
+        tabIndex={0}
+        role="button"
+        key={idx}
+      >
         {colorBlock.map(this.renderColor)}
       </div>
     )

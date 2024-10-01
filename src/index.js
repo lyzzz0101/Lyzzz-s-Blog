@@ -1,24 +1,24 @@
-import "react-app-polyfill/stable";
-import "react-app-polyfill/ie11";
+import "react-app-polyfill/stable"
+import "react-app-polyfill/ie11"
 
-import React from "react";
-import {createRoot} from "react-dom/client";
-import "./index.css";
-import App from "components/App";
-import * as serviceWorker from "./serviceWorker";
-import { HashRouter as Router } from "react-router-dom";
+import React from "react"
+import { createRoot } from "react-dom/client"
+import "./index.css"
+import App from "components/App"
+import * as serviceWorker from "./serviceWorker"
+import { HashRouter as Router } from "react-router-dom"
 
 const AppWrapper = () => (
   <Router>
     <App />
   </Router>
-);
-createRoot(document.getElementById("root")).render(<AppWrapper />);
+)
+createRoot(document.getElementById("root")).render(<AppWrapper />)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.unregister()
 
 // if (module.hot) {
 //     module.hot.accept();

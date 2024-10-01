@@ -1,10 +1,9 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import classNames from "classnames"
 import HomeHeader from "./HomeHeader/HomeHeader"
 import Portfolio from "./../Portfolio/Portfolio"
 
-require('./Home.scss')
-
+require("./Home.scss")
 
 class Home extends Component {
   getClassName() {
@@ -16,7 +15,7 @@ class Home extends Component {
       <div className={this.getClassName()}>
         <HomeHeader />
         <div className="Home__content">
-        <Portfolio />
+          <Portfolio />
         </div>
       </div>
     )

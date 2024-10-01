@@ -1,10 +1,10 @@
-"use strict";
+"use strict"
 
-const fs = require("fs");
-const paths = require("./paths");
+const fs = require("fs")
+const paths = require("./paths")
 
-const host = process.env.HOST || "0.0.0.0";
-const port = parseInt(process.env.PORT, 10) || 3000;
+const host = process.env.HOST || "0.0.0.0"
+const port = parseInt(process.env.PORT, 10) || 3000
 
 module.exports = function (proxy, allowedHost) {
   return {
@@ -47,13 +47,13 @@ module.exports = function (proxy, allowedHost) {
     // 设置中间件
     setupMiddlewares: (middlewares, devServer) => {
       if (fs.existsSync(paths.proxySetup)) {
-        require(paths.proxySetup)(devServer.app);
+        require(paths.proxySetup)(devServer.app)
       }
-      return middlewares;
+      return middlewares
     },
     // 服务器设置
     server: {
       type: process.env.HTTPS === "true" ? "https" : "http",
     },
-  };
-};
+  }
+}

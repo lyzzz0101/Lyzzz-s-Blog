@@ -1,10 +1,10 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import WatercolorCanvas from "components/_shared/WatercolorCanvas/WatercolorCanvas"
 
-require('./HomeHeader.scss')
+
+require("./HomeHeader.scss")
 
 class HomeHeader extends Component {
-
   render() {
     return (
       <div className="HomeHeader">
